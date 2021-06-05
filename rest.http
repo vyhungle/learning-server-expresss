@@ -23,13 +23,37 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3Y
 Content-Type: application/json
 
 {
-    "name":"FUTURISTIC CITY ZIP OVER-PRINTED JACKET",
-    "image":["https://product.hstatic.net/200000013792/product/jk_logo_679d6608f5314983adb1018b68b8823c_1024x1024.jpg"],
-    "price":"220000",
+    "name":"CARDIGAN FLORA STEEL",
+    "image":["https://slyclothing.vn/wp-content/uploads/2021/06/cardigan-flora-steel-1-800x1000.jpg","https://slyclothing.vn/wp-content/uploads/2021/06/cardigan-flora-steel-2-800x1000.jpg"],
+    "price":"450000",
     "size":"L",
     "quantity":"20",
-    "descriptions":"Chất liệu vải micro-parachute (dù) 2 lớp có tính dày dặn, thoáng mát và chống thấm nước"
+    "descriptions":"Lộn trái khi giặt, nên phơi nơi nắng nhẹ, tránh ánh nắng trực tiếp."
 }
 
 ####
 GET http://localhost:5000/api/product/all
+
+
+####
+GET http://localhost:5000/api/product/60bb283126978520449fae32
+
+
+####
+PUT http://localhost:5000/api/product/update/60bb283126978520449fae32
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3YzA4MDA5M2I5MDY3Zjg1YiIsImVtYWlsIjoidnl1bmdsZUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InZ5aHVuZ2xlIiwiaWF0IjoxNjIyODc5ODQ4LCJleHAiOjE2MjQwODk0NDh9.DnkxmqzfNretOr0d6_hvFXI8P0-KX38WzlUDR6tAFuY
+Content-Type: application/json
+
+{
+    "name":"CARDIGAN FLORA STEEL",
+    "image":["https://slyclothing.vn/wp-content/uploads/2021/06/cardigan-flora-steel-1-800x1000.jpg"],
+    "price":"450000",
+    "size":"L",
+    "quantity":"20",
+    "descriptions":"Lộn trái khi giặt, nên phơi nơi nắng nhẹ, tránh ánh nắng trực tiếp."
+}
+
+
+####
+DELETE http://localhost:5000/api/product/delete/60bb283126978520449fae32
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3YzA4MDA5M2I5MDY3Zjg1YiIsImVtYWlsIjoidnl1bmdsZUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InZ5aHVuZ2xlIiwiaWF0IjoxNjIyODc5ODQ4LCJleHAiOjE2MjQwODk0NDh9.DnkxmqzfNretOr0d6_hvFXI8P0-KX38WzlUDR6tAFuY
