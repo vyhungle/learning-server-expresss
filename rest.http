@@ -2,10 +2,10 @@ POST http://localhost:5000/api/auth/register
 Content-Type: application/json
 
 {
-    "username":"user123",
-    "password":"vykt2000",
+    "username":"",
+    "password":"aaaaaa",
     "confirmPassword":"vykt2000",
-    "email":"vyungle@gmail.com"
+    "email":""
 }
 
 ####
@@ -13,8 +13,8 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "username":"vyhungle",
-    "password":"vykt2000"
+    "username":"",
+    "password":""
 }
 
 ####
@@ -23,7 +23,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3Y
 Content-Type: application/json
 
 {
-    "name":"CARDIGAN FLORA STEEL",
+    "name":"",
     "image":["https://slyclothing.vn/wp-content/uploads/2021/06/cardigan-flora-steel-1-800x1000.jpg","https://slyclothing.vn/wp-content/uploads/2021/06/cardigan-flora-steel-2-800x1000.jpg"],
     "price":"450000",
     "size":"L",

@@ -5,49 +5,28 @@ module.exports.ValidateRegisterInput = (
   email,
   confirmPassword
 ) => {
-  var errors = [];
+  var errors = {};
   if (username.trim() === "") {
-    var err = {};
-    (err.field = "username"),
-      (err.message = "Tên đăng nhập không được để trống");
-    errors.push(err);
+    errors.username = "Tên đăng nhập không được để trống";
   } else if (username.length < 5) {
-    var err = {};
-    (err.field = "username"),
-      (err.message = "Tên đăng nhập không được nhỏ hơn 5 ký tự");
-    errors.push(err);
+    errors.username = "Tên đăng nhập không được nhỏ hơn 5 ký tự";
   } else if (usernameData === username) {
-    var err = {};
-    (err.field = "username"),
-      (err.message = "Tên người dùng này đã được sử dụng");
-    errors.push(err);
+    errors.username = "Tên người dùng này đã được sử dụng";
   }
   if (password.trim() === "") {
-    var err = {};
-    (err.field = "password"), (err.message = "Mật khẩu không được để trống");
-    errors.push(err);
+    errors.password = "Mật khẩu không được để trống";
   } else if (password.length < 5) {
-    var err = {};
-    (err.field = "password"),
-      (err.message = "Mật khẩu không được nhỏ hơn 5 ký tự");
-    errors.push(err);
+    errors.password = "Mật khẩu không được nhỏ hơn 5 ký tự";
   } else if (password.trim() !== confirmPassword.trim()) {
-    var err = {};
-    (err.field = "comfirmPassword"), (err.message = "mật khẩu phải trùng khớp");
-    errors.push(err);
+    errors.comfirmPassword = "mật khẩu phải trùng khớp";
   }
   if (email.trim() === "") {
-    var err = {};
-    (err.field = "email"), (err.message = "Email không được để trống");
-    errors.push(err);
+    errors.email = "Email không được để trống";
   } else {
     const regEx =
       /^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/;
     if (!email.match(regEx)) {
-      var err = {};
-      (err.field = "email"),
-        (err.message = "Email phải là một địa chỉ email hợp lệ");
-      errors.push(err);
+      errors.email = "Email phải là một địa chỉ email hợp lệ";
     }
   }
   return {
@@ -57,17 +36,12 @@ module.exports.ValidateRegisterInput = (
 };
 
 module.exports.ValidateLoginInput = (username, password) => {
-  var errors = [];
+  var errors = {};
   if (username.trim() === "") {
-    var err = {};
-    (err.field = "username"),
-      (err.message = "Tên đăng nhập không được để trống");
-    errors.push(err);
+    errors.username = "Tên đăng nhập không được để trống";
   }
   if (password.trim() === "") {
-    var err = {};
-    (err.field = "password"), (err.message = "Mật khẩu không được để trống");
-    errors.push(err);
+    errors.password = "Mật khẩu không được để trống";
   }
   return {
     errors,
@@ -76,41 +50,26 @@ module.exports.ValidateLoginInput = (username, password) => {
 };
 
 module.exports.ValidateProductInput = (name, image, price, quantity) => {
-  var errors = [];
+  var errors = {};
   if (name.trim() === "") {
-    var err = {};
-    (err.field = "name"), (err.message = "Tên sản phẩm không được để trống");
-    errors.push(err);
+    errors.name = "Tên sản phẩm không được để trống";
   } else if (name.length < 10) {
-    var err = {};
-    (err.field = "name"),
-      (err.message = "Tên sản phẩm không được nhỏ hơn 10 ký tự");
-    errors.push(err);
+    errors.name = "Tên sản phẩm không được nhỏ hơn 10 ký tự";
   }
   if (image.length < 1) {
-    var err = {};
-    (err.field = "image"), (err.message = "Chọn hình cho sản phẩm");
-    errors.push(err);
+    errors.image = "Chọn hình cho sản phẩm";
   }
   if (!parseInt(price)) {
-    var err = {};
-    (err.field = "price"), (err.message = "Giá sản phẩm phải là số");
-    errors.push(err);
-  }else if (parseInt(price)<0) {
-    var err = {};
-    (err.field = "price"), (err.message = "Giá sản phẩm không được bé hơn 0");
-    errors.push(err);
+    errors.price = "Giá sản phẩm phải là số";
+  } else if (parseInt(price) < 0) {
+    errors.price = "Giá sản phẩm không được bé hơn 0";
   }
   if (!parseInt(quantity)) {
-    var err = {};
-    (err.field = "quantity"), (err.message = "Số lượng sản phẩm phải là số");
-    errors.push(err);
-  }else if (parseInt(quantity)<0) {
-    var err = {};
-    (err.field = "quantity"), (err.message = "Số lượng sản phẩm không được bé hơn 0");
-    errors.push(err);
+    errors.quantity = "Số lượng sản phẩm phải là số";
+  } else if (parseInt(quantity) < 0) {
+    errors.quantity = "Số lượng sản phẩm không được bé hơn 0";
   }
-  
+
   return {
     errors,
     valid: Object.keys(errors).length < 1,

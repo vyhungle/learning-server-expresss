@@ -40,13 +40,11 @@ router.post("/register", async (req, res) => {
     confirmPassword
   );
   if (!valid) {
-    res
-      .status(400)
-      .json({
-        success: false,
-        message: "Đăng ký thất bại",
-        errors: errors,
-      });
+    res.status(400).json({
+      success: false,
+      message: "Đăng ký thất bại",
+      errors: errors,
+    });
   } else {
     const hashedPassword = await bcrypt.hash(password, 12);
     const newUser = new User({
@@ -73,37 +71,29 @@ router.post("/login", async (req, res) => {
   const { valid, errors } = ValidateLoginInput(username, password);
   if (!user) {
     if (username !== "") {
-      const err = {
-        field: "username",
-        message: "Thông tin tài khoản không tồn tại",
-      };
-      errors.push(err);
+      errors.username = "Thông tin tài khoản không tồn tại";
     }
-    res.status(400).json({
+    res.json({
       success: false,
-      message:"Đăng nhập thất bại",
+      message: "Đăng nhập thất bại",
       errors: errors,
     });
   } else {
     const match = await bcrypt.compare(password, user.password);
     if (!match) {
       if (password !== "") {
-        const err = {
-          field: "password",
-          message: "Thông tin mật khẩu chưa chính xác",
-        };
-        errors.push(err);
+        errors.password = "Thông tin mật khẩu chưa chính xác";
       }
       res.json({
         success: false,
-        message:"Đăng nhập thất bại",
-        errors: errors,      
+        message: "Đăng nhập thất bại",
+        errors: errors,
       });
     } else {
       const token = generateToken(user);
       res.json({
         success: true,
-        message:"Đăng nhập thành công",
+        message: "Đăng nhập thành công",
         token: token,
       });
     }
