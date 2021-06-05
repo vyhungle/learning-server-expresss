@@ -77,8 +77,7 @@ router.post("/add", verifyToken, async (req, res) => {
     return res.status(400).json({
       success: false,
       message: "Thêm sản phẩm không thành công",
-      errors: errors,
-      product: null,
+      errors: errors,   
     });
   }
   try {
@@ -104,7 +103,6 @@ router.post("/add", verifyToken, async (req, res) => {
     return res.json({
       success: true,
       message: "Thêm sản phẩm thành công",
-      errors: null,
       product: newProduct,
     });
   } catch (error) {

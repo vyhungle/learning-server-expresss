@@ -46,7 +46,6 @@ router.post("/register", async (req, res) => {
         success: false,
         message: "Đăng ký thất bại",
         errors: errors,
-        token: null,
       });
   } else {
     const hashedPassword = await bcrypt.hash(password, 12);
@@ -60,7 +59,6 @@ router.post("/register", async (req, res) => {
     res.json({
       success: true,
       message: "Đăng ký thành công",
-      errors: null,
       token: token,
     });
   }
@@ -85,7 +83,6 @@ router.post("/login", async (req, res) => {
       success: false,
       message:"Đăng nhập thất bại",
       errors: errors,
-      token: null,
     });
   } else {
     const match = await bcrypt.compare(password, user.password);
@@ -100,15 +97,13 @@ router.post("/login", async (req, res) => {
       res.json({
         success: false,
         message:"Đăng nhập thất bại",
-        errors: errors,
-        token: null,
+        errors: errors,      
       });
     } else {
       const token = generateToken(user);
       res.json({
         success: true,
         message:"Đăng nhập thành công",
-        errors: null,
         token: token,
       });
     }
