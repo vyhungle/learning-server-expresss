@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 const authRouter = require("./routers/auth");
+const productRouter = require("./routers/product");
 
 const app = express();
 
@@ -23,7 +24,9 @@ mongoose
     console.log(err);
   });
 
+//
 app.use("/api/auth", authRouter);
+app.use("/api/product", productRouter);
 app.listen(process.env.PORT, () => {
   console.log(`Server running at http://localhost:${process.env.PORT}/`);
 });

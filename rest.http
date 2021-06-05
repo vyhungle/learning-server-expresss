@@ -1,14 +1,14 @@
-# POST http://localhost:5000/api/auth/register
-# Content-Type: application/json
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
 
-# {
-#     "username":"vyhungle",
-#     "password":"vykt2000",
-#     "confirmPassword":"vykt2000",
-#     "email":"vyungle@gmail.com"
-# }
+{
+    "username":"user123",
+    "password":"vykt2000",
+    "confirmPassword":"vykt2000",
+    "email":"vyungle@gmail.com"
+}
 
-
+####
 POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
@@ -16,3 +16,20 @@ Content-Type: application/json
     "username":"vyhungle",
     "password":"vykt2000"
 }
+
+####
+POST http://localhost:5000/api/product/add
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3YzA4MDA5M2I5MDY3Zjg1YiIsImVtYWlsIjoidnl1bmdsZUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InZ5aHVuZ2xlIiwiaWF0IjoxNjIyODY4Njk1LCJleHAiOjE2MjQwNzgyOTV9.P1ipVuMD1m0K4jyoSfm0XUsw4AhQm3gHrf5YX2a3gGw
+Content-Type: application/json
+
+{
+    "name":"FUTURISTIC CITY ZIP OVER-PRINTED JACKET",
+    "image":["https://product.hstatic.net/200000013792/product/jk_logo_679d6608f5314983adb1018b68b8823c_1024x1024.jpg"],
+    "price":"220000",
+    "size":"L",
+    "quantity":"20",
+    "descriptions":"Chất liệu vải micro-parachute (dù) 2 lớp có tính dày dặn, thoáng mát và chống thấm nước"
+}
+
+####
+GET http://localhost:5000/api/product/all

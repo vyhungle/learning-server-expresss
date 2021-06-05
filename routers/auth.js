@@ -40,7 +40,14 @@ router.post("/register", async (req, res) => {
     confirmPassword
   );
   if (!valid) {
-    res.status(400).json({ errors: errors });
+    res
+      .status(400)
+      .json({
+        success: false,
+        message: "Đăng ký thất bại",
+        errors: errors,
+        token: null,
+      });
   } else {
     const hashedPassword = await bcrypt.hash(password, 12);
     const newUser = new User({
@@ -51,8 +58,10 @@ router.post("/register", async (req, res) => {
     const value = await newUser.save();
     const token = generateToken(value);
     res.json({
-      ...value._doc,
-      token,
+      success: true,
+      message: "Đăng ký thành công",
+      errors: null,
+      token: token,
     });
   }
 });
@@ -73,8 +82,10 @@ router.post("/login", async (req, res) => {
       errors.push(err);
     }
     res.status(400).json({
+      success: false,
+      message:"Đăng nhập thất bại",
       errors: errors,
-      user: null,
+      token: null,
     });
   } else {
     const match = await bcrypt.compare(password, user.password);
@@ -87,17 +98,18 @@ router.post("/login", async (req, res) => {
         errors.push(err);
       }
       res.json({
+        success: false,
+        message:"Đăng nhập thất bại",
         errors: errors,
-        user: null,
+        token: null,
       });
     } else {
       const token = generateToken(user);
       res.json({
+        success: true,
+        message:"Đăng nhập thành công",
         errors: null,
-        user: {
-            ...user._doc,
-            token
-        },
+        token: token,
       });
     }
   }
