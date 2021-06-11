@@ -40,7 +40,7 @@ router.post("/register", async (req, res) => {
     confirmPassword
   );
   if (!valid) {
-    res.status(400).json({
+    res.json({
       success: false,
       message: "Đăng ký thất bại",
       errors: errors,
