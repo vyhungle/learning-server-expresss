@@ -5,6 +5,8 @@ require("dotenv").config();
 
 const verifyToken = require("../middleware/auth");
 const Product = require("../models/Product");
+const Producer = require("../models/Producer");
+const Supplier = require("../models/Supplier");
 const { ValidateProductInput } = require("../utils/validators");
 const { remove } = require("../models/Product");
 
@@ -20,11 +22,10 @@ cloudinary.config({
 // @access Public
 router.get("/all", async (req, res) => {
   try {
-    const products = await Product.find().populate("user", [
-      "username",
-      "email",
-      "createdAt",
-    ]);
+    const products = await Product.find()
+      .populate("user", ["username", "email", "createdAt"])
+      .populate("supplier")
+      .populate("producer");
     if (!products) {
       return res.status(400).json({
         success: false,
@@ -46,11 +47,11 @@ router.get("/all", async (req, res) => {
 // @access Public
 router.get("/:id", async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id).populate("user", [
-      "username",
-      "email",
-      "createdAt",
-    ]);
+    const product = await Product.findById(req.params.id)
+      .populate("user", ["username", "email", "createdAt"])
+      .populate("supplier")
+      .populate("producer");
+
     if (!product) {
       return res.status(400).json({
         success: false,
@@ -71,13 +72,24 @@ router.get("/:id", async (req, res) => {
 // @desc add product
 // @access Private
 router.post("/add", verifyToken, async (req, res) => {
-  const { name, image, price, size, quantity, descriptions } = req.body;
+  const {
+    name,
+    image,
+    price,
+    quantity,
+    descriptions,
+    configuration,
+    producerId,
+    supplierId,
+    guarantee,
+    typeOfPhone,
+  } = req.body;
   const { valid, errors } = ValidateProductInput(name, image, price, quantity);
   if (!valid) {
     return res.status(400).json({
       success: false,
       message: "Thêm sản phẩm không thành công",
-      errors: errors,   
+      errors: errors,
     });
   }
   try {
@@ -94,9 +106,13 @@ router.post("/add", verifyToken, async (req, res) => {
       name,
       image: uri,
       price,
-      size: size || "M",
       quantity,
       descriptions,
+      configuration,
+      producer: producerId,
+      supplier: supplierId,
+      guarantee,
+      typeOfPhone,
       user: req.userId,
     });
     await newProduct.save();

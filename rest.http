@@ -13,22 +13,36 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "username":"",
-    "password":""
+    "username":"vyhungle",
+    "password":"vykt2000"
 }
 
 ####
 POST http://localhost:5000/api/product/add
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3YzA4MDA5M2I5MDY3Zjg1YiIsImVtYWlsIjoidnl1bmdsZUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InZ5aHVuZ2xlIiwiaWF0IjoxNjIyODY4Njk1LCJleHAiOjE2MjQwNzgyOTV9.P1ipVuMD1m0K4jyoSfm0XUsw4AhQm3gHrf5YX2a3gGw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3YzA4MDA5M2I5MDY3Zjg1YiIsImVtYWlsIjoidnl1bmdsZUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InZ5aHVuZ2xlIiwiaWF0IjoxNjIzNzcxNDEwLCJleHAiOjE2MjQ5ODEwMTB9.BtFnUOnL19DF2LfUhIsc1t8OGErlMLYdV0kiGqvZZRo
 Content-Type: application/json
 
 {
-    "name":"",
-    "image":["https://slyclothing.vn/wp-content/uploads/2021/06/cardigan-flora-steel-1-800x1000.jpg","https://slyclothing.vn/wp-content/uploads/2021/06/cardigan-flora-steel-2-800x1000.jpg"],
-    "price":"450000",
-    "size":"L",
+    "name":"Điện thoại iPhone 12 64GB",
+    "image":["https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-xanh-duong-1-1-org.jpg","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-xanh-duong-2-org.jpg","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-xanh-duong-3-org.jpg","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-xanh-duong-4-1-org.jpg"],
+    "price":"23490000",
     "quantity":"20",
-    "descriptions":"Lộn trái khi giặt, nên phơi nơi nắng nhẹ, tránh ánh nắng trực tiếp."
+    "descriptions":"Nổi bật với cụm camera sau được thiết kế đầy mới lạ, phần khuôn hình chữ nhật chứa bộ 3 camera ôm trọn cạnh trái của chiếc smartphone, viền khuôn cong uyển chuyển, hạn chế tối đa độ nhô ra so với mặt lưng, mang lại cái nhìn tổng thể hài hòa, độc đáo.",
+    "configuration":{
+        "screen":"Dynamic, AMOLED 2X , 6.2In, Full HD+",
+        "operatingSystem":"Android 11",
+        "behindCamera":"Chính 12 MP & Phụ 64 MP, 12 MP",
+        "frontCamera":"10 MP",
+        "chip":"Exynos 2100",
+        "ram":"8",
+        "rom":"128",
+        "sim":"2 Nano SIM hoặc 1 Nano SIM + 1 eSIMHỗ trợ 5G",
+        "pin":"4000 mAh, 25 W"
+    },
+    "producerId":"60c8c3e09a908d37441cb0f9",
+    "supplierId":"60c8c253ee2a4a9a80bb71be",
+    "guarantee":"Bảo hành chính hãng điện thoại 1 năm",
+    "typeOfPhone":"Android"
 }
 
 ####
@@ -44,14 +58,7 @@ PUT http://localhost:5000/api/product/update/60bb283126978520449fae32
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3YzA4MDA5M2I5MDY3Zjg1YiIsImVtYWlsIjoidnl1bmdsZUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InZ5aHVuZ2xlIiwiaWF0IjoxNjIyODc5ODQ4LCJleHAiOjE2MjQwODk0NDh9.DnkxmqzfNretOr0d6_hvFXI8P0-KX38WzlUDR6tAFuY
 Content-Type: application/json
 
-{
-    "name":"CARDIGAN FLORA STEEL",
-    "image":["https://slyclothing.vn/wp-content/uploads/2021/06/cardigan-flora-steel-1-800x1000.jpg"],
-    "price":"450000",
-    "size":"L",
-    "quantity":"20",
-    "descriptions":"Lộn trái khi giặt, nên phơi nơi nắng nhẹ, tránh ánh nắng trực tiếp."
-}
+
 
 
 ####
