@@ -23,26 +23,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3Y
 Content-Type: application/json
 
 {
-    "name":"Điện thoại iPhone 12 64GB",
-    "image":["https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-xanh-duong-1-1-org.jpg","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-xanh-duong-2-org.jpg","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-xanh-duong-3-org.jpg","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-xanh-duong-4-1-org.jpg"],
-    "price":"23490000",
-    "quantity":"20",
-    "descriptions":"Nổi bật với cụm camera sau được thiết kế đầy mới lạ, phần khuôn hình chữ nhật chứa bộ 3 camera ôm trọn cạnh trái của chiếc smartphone, viền khuôn cong uyển chuyển, hạn chế tối đa độ nhô ra so với mặt lưng, mang lại cái nhìn tổng thể hài hòa, độc đáo.",
-    "configuration":{
-        "screen":"Dynamic, AMOLED 2X , 6.2In, Full HD+",
-        "operatingSystem":"Android 11",
-        "behindCamera":"Chính 12 MP & Phụ 64 MP, 12 MP",
-        "frontCamera":"10 MP",
-        "chip":"Exynos 2100",
-        "ram":"8",
-        "rom":"128",
-        "sim":"2 Nano SIM hoặc 1 Nano SIM + 1 eSIMHỗ trợ 5G",
-        "pin":"4000 mAh, 25 W"
-    },
-    "producerId":"60c8c3e09a908d37441cb0f9",
-    "supplierId":"60c8c253ee2a4a9a80bb71be",
-    "guarantee":"Bảo hành chính hãng điện thoại 1 năm",
-    "typeOfPhone":"Android"
+    "name":"Dầu đậu nành Simply",
+    "image":"https://tmp.phongvu.vn/wp-content/uploads/2020/03/D%E1%BA%A7u-%C4%91%E1%BA%ADu-n%C3%A0nh-Simply-chai-1L_1-e1585554230203.png",
+    "uint":"1L",
+    "quantity": 20,
+    "price": 80000,
+    "detail":"Cá chim đen tươi là thực phẩm rất giàu dinh dưỡng. Sản phẩm được bảo quản cẩn thận trong hệ thống khép kín để bảo toàn dinh dưỡng. Ngoài ra, thực phẩm được lựa chọn theo tiểu chuẩn quốc tế. Với cá chim đen tươi, chúng ta có thể chế biến được rất nhiều món ăn bổ dưỡng khác nhau cho cả gia đình. Ví dụ như cá chim đen hấp hành, cá chim đen nấu ngót, cá chim đen sốt nước tương,... Cá chim đen chứa nhiều Omega-3 và protein rất tốt cho sức khỏe. Theo Y học Cổ truyền, ăn cá chim đen có tác dụng kiện tỳ dưỡng huyết, bổ vị, cố tinh, nhu lợi gân cốt.",
+    "categoryId":"60cda59f8ade223758d73876",
+    "producerId":"60c8c253ee2a4a9a80bb71be",
+    "supplierId":"60c8c253ee2a4a9a80bb71be"
 }
 
 ####

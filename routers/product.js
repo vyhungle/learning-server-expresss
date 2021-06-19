@@ -7,6 +7,7 @@ const verifyToken = require("../middleware/auth");
 const Product = require("../models/Product");
 const Producer = require("../models/Producer");
 const Supplier = require("../models/Supplier");
+const Category = require("../models/Category");
 const { ValidateProductInput } = require("../utils/validators");
 const { remove } = require("../models/Product");
 
@@ -25,7 +26,8 @@ router.get("/all", async (req, res) => {
     const products = await Product.find()
       .populate("user", ["username", "email", "createdAt"])
       .populate("supplier")
-      .populate("producer");
+      .populate("producer")
+      .populate("category");
     if (!products) {
       return res.status(400).json({
         success: false,
@@ -50,7 +52,8 @@ router.get("/:id", async (req, res) => {
     const product = await Product.findById(req.params.id)
       .populate("user", ["username", "email", "createdAt"])
       .populate("supplier")
-      .populate("producer");
+      .populate("producer")
+      .populate("category");
 
     if (!product) {
       return res.status(400).json({
@@ -75,16 +78,21 @@ router.post("/add", verifyToken, async (req, res) => {
   const {
     name,
     image,
-    price,
+    uint,
     quantity,
-    descriptions,
-    configuration,
+    price,
+    detail,
+    categoryId,
     producerId,
     supplierId,
-    guarantee,
-    typeOfPhone,
   } = req.body;
-  const { valid, errors } = ValidateProductInput(name, image, price, quantity);
+  const { valid, errors } = ValidateProductInput(
+    name,
+    image,
+    price,
+    quantity,
+    uint
+  );
   if (!valid) {
     return res.status(400).json({
       success: false,
@@ -93,26 +101,24 @@ router.post("/add", verifyToken, async (req, res) => {
     });
   }
   try {
-    var uri = [];
-    for (const img of image) {
-      const result = await cloudinary.v2.uploader.upload(img, {
-        allowed_formats: ["jpg", "png"],
-        public_id: "",
-        folder: "Products",
-      });
-      uri.push(result.url);
-    }
+    var uri = "";
+    const result = await cloudinary.v2.uploader.upload(image, {
+      allowed_formats: ["jpg", "png"],
+      public_id: "",
+      folder: "Products",
+    });
+    uri = result.url;
+
     const newProduct = new Product({
       name,
       image: uri,
-      price,
+      uint,
       quantity,
-      descriptions,
-      configuration,
+      price,
+      detail,
+      category: categoryId,
       producer: producerId,
       supplier: supplierId,
-      guarantee,
-      typeOfPhone,
       user: req.userId,
     });
     await newProduct.save();
@@ -133,8 +139,24 @@ router.post("/add", verifyToken, async (req, res) => {
 // @desc Edit product by id
 // @access Private
 router.put("/update/:id", verifyToken, async (req, res) => {
-  const { name, image, price, size, quantity, descriptions } = req.body;
-  const { valid, errors } = ValidateProductInput(name, image, price, quantity);
+  const {
+    name,
+    image,
+    uint,
+    quantity,
+    price,
+    detail,
+    categoryId,
+    producerId,
+    supplierId,
+  } = req.body;
+  const { valid, errors } = ValidateProductInput(
+    name,
+    image,
+    price,
+    quantity,
+    uint
+  );
   if (!valid) {
     return res.status(400).json({
       success: false,
@@ -143,22 +165,24 @@ router.put("/update/:id", verifyToken, async (req, res) => {
     });
   }
   try {
-    var uri = [];
-    for (const img of image) {
-      const result = await cloudinary.v2.uploader.upload(img, {
-        allowed_formats: ["jpg", "png"],
-        public_id: "",
-        folder: "Products",
-      });
-      uri.push(result.url);
-    }
+    var uri = "";
+    const result = await cloudinary.v2.uploader.upload(image, {
+      allowed_formats: ["jpg", "png"],
+      public_id: "",
+      folder: "Products",
+    });
+    uri = result.url;
+
     var updateProduct = {
       name,
       image: uri,
-      price,
-      size: size || "M",
+      uint,
       quantity,
-      descriptions,
+      price,
+      detail,
+      categoryId: categoryId,
+      producer: producerId,
+      supplier: supplierId,
     };
 
     const productUpdateCondition = { _id: req.params.id, user: req.userId };

@@ -13,7 +13,7 @@ const userSchema = new Schema({
   email: String,
   createdAt: {
     type: String,
-    default: Date.now(),
+    default: new Date().toISOString(),
   },
 });
 

@@ -49,7 +49,7 @@ module.exports.ValidateLoginInput = (username, password) => {
   };
 };
 
-module.exports.ValidateProductInput = (name, image, price, quantity) => {
+module.exports.ValidateProductInput = (name, image, price, quantity, uint) => {
   var errors = {};
   if (name.trim() === "") {
     errors.name = "Tên sản phẩm không được để trống";
@@ -68,6 +68,9 @@ module.exports.ValidateProductInput = (name, image, price, quantity) => {
     errors.quantity = "Số lượng sản phẩm phải là số";
   } else if (parseInt(quantity) < 0) {
     errors.quantity = "Số lượng sản phẩm không được bé hơn 0";
+  }
+  if (uint.trim() === "") {
+    errors.uint = "Đơn vị bán của sản phẩm phải là số";
   }
 
   return {

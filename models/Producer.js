@@ -5,8 +5,21 @@ const producerSchema = new Schema({
     type: String,
     required: true,
   },
-  image: {
+  location: {
     type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    require: true,
+  },
+  phoneNumber: {
+    type: String,
+    require: true,
+  },
+  createdAt: {
+    type: String,
+    default: new Date().toISOString(),
   },
 });
 

@@ -19,7 +19,7 @@ const supplierSchema = new Schema({
   },
   createdAt: {
     type: String,
-    default: Date.now(),
+    default: new Date().toISOString(),
   },
 });
 
