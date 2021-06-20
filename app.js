@@ -5,6 +5,7 @@ const cors = require("cors");
 
 const authRouter = require("./routers/auth");
 const productRouter = require("./routers/product");
+const categoryRouter = require("./routers/category");
 
 const app = express();
 
@@ -29,6 +30,7 @@ mongoose
 //
 app.use("/api/auth", authRouter);
 app.use("/api/product", productRouter);
+app.use("/api/category", categoryRouter);
 app.listen(process.env.PORT, () => {
   console.log(`Server running at http://localhost:${process.env.PORT}/`);
 });

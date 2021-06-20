@@ -8,6 +8,12 @@ const CategorySchema = new Schema({
   image: {
     type: String,
   },
+  bgColor: {
+    type: String,
+  },
+  borderColor: {
+    type: String,
+  },
 });
 
 module.exports = model("categories", CategorySchema);
