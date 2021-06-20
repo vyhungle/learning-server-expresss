@@ -23,11 +23,11 @@ cloudinary.config({
 // @access Public
 router.get("/all", async (req, res) => {
   try {
-    const products = await Product.find()
-      .populate("user", ["username", "email", "createdAt"])
-      .populate("supplier")
-      .populate("producer")
-      .populate("category");
+    const products = await Product.find();
+    // .populate("user", ["username", "email", "createdAt"])
+    // .populate("supplier")
+    // .populate("producer")
+    // .populate("category");
     if (!products) {
       return res.status(400).json({
         success: false,
@@ -49,11 +49,11 @@ router.get("/all", async (req, res) => {
 // @access Public
 router.get("/:id", async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id)
-      .populate("user", ["username", "email", "createdAt"])
-      .populate("supplier")
-      .populate("producer")
-      .populate("category");
+    const product = await Product.findById(req.params.id);
+    // .populate("user", ["username", "email", "createdAt"])
+    // .populate("supplier")
+    // .populate("producer")
+    // .populate("category");
 
     if (!product) {
       return res.status(400).json({
