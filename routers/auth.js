@@ -23,9 +23,24 @@ function generateToken(user) {
     { expiresIn: "14d" }
   );
 }
-
-router.get("/", (req, res) => {
-  res.send("UserRouter");
+// @route GET api/auth/
+// @desc get user
+// @access Private
+router.get("/", verifyToken, async (req, res) => {
+  try {
+    const user = await User.findById(req.userId);
+    return res.json({
+      success: true,
+      message: "Lấy dữ liệu thành công",
+      user,
+    });
+  } catch (error) {
+    return res.json({
+      success: false,
+      message: "Lấy dữ liệu thất bại",
+      error,
+    });
+  }
 });
 
 // @route POST api/auth/register

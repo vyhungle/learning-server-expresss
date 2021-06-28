@@ -85,3 +85,8 @@ Content-Type: application/json
     ],
     "total":12000
 }
+
+
+#####
+GET  http://localhost:5000/api/auth/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3YzA4MDA5M2I5MDY3Zjg1YiIsImVtYWlsIjoidnl1bmdsZUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InZ5aHVuZ2xlIiwiaWF0IjoxNjI0ODY0NDM1LCJleHAiOjE2MjYwNzQwMzV9.8QfbTd5LzHEGpNLNocnSEvfBB_MNnk3N8njiqVnCs-8
