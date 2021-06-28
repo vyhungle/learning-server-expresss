@@ -23,10 +23,10 @@ function generateToken(user) {
     { expiresIn: "14d" }
   );
 }
-// @route GET api/auth/
+// @route GET api/auth/user
 // @desc get user
 // @access Private
-router.get("/", verifyToken, async (req, res) => {
+router.get("/user", verifyToken, async (req, res) => {
   try {
     const user = await User.findById(req.userId);
     return res.json({
