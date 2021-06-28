@@ -49,7 +49,7 @@ module.exports.ValidateLoginInput = (username, password) => {
   };
 };
 
-module.exports.ValidateProductInput = (name, image, price, quantity, uint) => {
+module.exports.ValidateProductInput = (name, image, price, quantity, unit) => {
   var errors = {};
   if (name.trim() === "") {
     errors.name = "Tên sản phẩm không được để trống";
@@ -69,8 +69,8 @@ module.exports.ValidateProductInput = (name, image, price, quantity, uint) => {
   } else if (parseInt(quantity) < 0) {
     errors.quantity = "Số lượng sản phẩm không được bé hơn 0";
   }
-  if (uint.trim() === "") {
-    errors.uint = "Đơn vị bán của sản phẩm phải là số";
+  if (unit.trim() === "") {
+    errors.unit = "Đơn vị bán của sản phẩm phải là số";
   }
 
   return {
@@ -78,3 +78,34 @@ module.exports.ValidateProductInput = (name, image, price, quantity, uint) => {
     valid: Object.keys(errors).length < 1,
   };
 };
+
+module.exports.ValidateProfile = (address, phoneNumber, fullName) => {
+  var errors = {};
+  var check = address.split(",");
+  console.log(check);
+  if (check.length < 3) {
+    errors.address = "Vui lòng chọn địa chỉ nhận hàng";
+  }
+  if (phoneNumber.trim() === "") {
+    errors.phoneNumber = "Vui lòng nhập số điện thoại nhận hàng";
+  } else if (
+    !parseInt(phoneNumber) ||
+    phoneNumber.length < 10 ||
+    phoneNumber.length > 11
+  ) {
+    errors.phoneNumber = "Số điện thoại không hợp lệ";
+  }
+  if (fullName.trim() === "") {
+    errors.fullName = "Vui lòng nhập tên người nhận";
+  } else if (fullName.length < 7) {
+    errors.fullName = "Vui lòng nhập đầy đủ họ tên";
+  }
+
+  return {
+    errors,
+    valid: Object.keys(errors).length < 1,
+  };
+};
+
+
+

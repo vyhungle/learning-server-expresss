@@ -3,26 +3,27 @@ const { model, Schema } = require("mongoose");
 const BillSchema = new Schema({
   products: [
     {
-      productDetail: {
-        product: {
-          type: Schema.Types.ObjectId,
-          ref: "products",
-        },
-        number: {
-          type: String,
-          default: 1,
-        },
+      product: {
+        type: Schema.Types.ObjectId,
+        ref: "products",
+      },
+      quantity: {
+        type: Number,
+        default: 1,
       },
     },
   ],
   total: {
-    type: String,
+    type: Number,
     required: true,
   },
   createdAt: {
     type: String,
     default: Date.now(),
   },
+  address: String,
+  phoneNumber: String,
+  fullName: String,
   user: {
     type: Schema.Types.ObjectId,
     ref: "users",

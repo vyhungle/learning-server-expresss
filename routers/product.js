@@ -78,10 +78,11 @@ router.post("/add", verifyToken, async (req, res) => {
   const {
     name,
     image,
-    uint,
+    unit,
     quantity,
     price,
     detail,
+    discount,
     categoryId,
     producerId,
     supplierId,
@@ -91,7 +92,7 @@ router.post("/add", verifyToken, async (req, res) => {
     image,
     price,
     quantity,
-    uint
+    unit
   );
   if (!valid) {
     return res.status(400).json({
@@ -112,10 +113,11 @@ router.post("/add", verifyToken, async (req, res) => {
     const newProduct = new Product({
       name,
       image: uri,
-      uint,
+      unit,
       quantity,
       price,
       detail,
+      discount,
       category: categoryId,
       producer: producerId,
       supplier: supplierId,
@@ -142,13 +144,14 @@ router.put("/update/:id", verifyToken, async (req, res) => {
   const {
     name,
     image,
-    uint,
+    unit,
     quantity,
     price,
     detail,
     categoryId,
     producerId,
     supplierId,
+    discount,
   } = req.body;
   const { valid, errors } = ValidateProductInput(
     name,
@@ -179,6 +182,7 @@ router.put("/update/:id", verifyToken, async (req, res) => {
       uint,
       quantity,
       price,
+      discount,
       detail,
       categoryId: categoryId,
       producer: producerId,

@@ -3,10 +3,13 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const verifyToken = require("../middleware/auth");
+
 const User = require("../models/User");
 const {
   ValidateRegisterInput,
   ValidateLoginInput,
+  ValidateProfile,
 } = require("../utils/validators");
 
 function generateToken(user) {
@@ -98,6 +101,40 @@ router.post("/login", async (req, res) => {
       });
     }
   }
+});
+
+// @route PUT api/auth/login
+// @desc edit address
+// @access private
+router.put("/editProfile", verifyToken, async (req, res) => {
+  const { address, phoneNumber, fullName } = req.body;
+  const { valid, errors } = ValidateProfile(address, phoneNumber, fullName);
+
+  if (!valid) {
+    return res.json({
+      success: false,
+      message: "Edit thất bại",
+      errors: errors,
+    });
+  }
+
+  await User.findById({ _id: req.userId }, function (err, doc) {
+    if (err) {
+      return res.json({
+        success: false,
+        message: err,
+      });
+    }
+    doc.address = address;
+    doc.phoneNumber = phoneNumber;
+    doc.fullName = fullName;
+    doc.save();
+    return res.json({
+      success: true,
+      message: "Thay doi dia chi thanh cong",
+      user: doc,
+    });
+  });
 });
 
 module.exports = router;

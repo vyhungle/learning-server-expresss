@@ -11,6 +11,9 @@ const userSchema = new Schema({
     required: true,
   },
   email: String,
+  address: String,
+  phoneNumber: String,
+  fullName: String,
   createdAt: {
     type: String,
     default: new Date().toISOString(),

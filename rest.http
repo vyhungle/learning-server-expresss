@@ -23,13 +23,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3Y
 Content-Type: application/json
 
 {
-    "name":"Dầu đậu nành Simply",
-    "image":"https://tmp.phongvu.vn/wp-content/uploads/2020/03/D%E1%BA%A7u-%C4%91%E1%BA%ADu-n%C3%A0nh-Simply-chai-1L_1-e1585554230203.png",
-    "uint":"1L",
-    "quantity": 20,
-    "price": 80000,
-    "detail":"Cá chim đen tươi là thực phẩm rất giàu dinh dưỡng. Sản phẩm được bảo quản cẩn thận trong hệ thống khép kín để bảo toàn dinh dưỡng. Ngoài ra, thực phẩm được lựa chọn theo tiểu chuẩn quốc tế. Với cá chim đen tươi, chúng ta có thể chế biến được rất nhiều món ăn bổ dưỡng khác nhau cho cả gia đình. Ví dụ như cá chim đen hấp hành, cá chim đen nấu ngót, cá chim đen sốt nước tương,... Cá chim đen chứa nhiều Omega-3 và protein rất tốt cho sức khỏe. Theo Y học Cổ truyền, ăn cá chim đen có tác dụng kiện tỳ dưỡng huyết, bổ vị, cố tinh, nhu lợi gân cốt.",
-    "categoryId":"60cda59f8ade223758d73876",
+    "name":"Coca Cola Light",
+    "image":"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2020/5/10/20200510_7406856a-d49b-478a-ba23-b82bcd5e60b2.jpe",
+    "unit":"lon 330ml",
+    "quantity": 200,
+    "price": 9500,
+    "discount": 4.5,
+    "detail":"Nước giải khát không đường Coca Cola Light lon 330ml mang hương vị cola độc đáo giúp giải nhanh cơn khát của bạn. Đặc biệt, dòng sản phẩm Coca Cola này không chứa đường nên rất phù hợp với những người ăn kiêng. Nước giải khát không đường Coca Cola light được sản xuất trên dây chuyền công nghệ hiện đại, đảm bảo vệ sinh.",
+    "categoryId":"60cda59f8ade223758d7387a",
     "producerId":"60c8c253ee2a4a9a80bb71be",
     "supplierId":"60c8c253ee2a4a9a80bb71be"
 }
@@ -56,3 +57,31 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3Y
 
 ####
 GET http://localhost:5000/api/category/all
+
+####
+PUT http://localhost:5000/api/auth/editProfile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3YzA4MDA5M2I5MDY3Zjg1YiIsImVtYWlsIjoidnl1bmdsZUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InZ5aHVuZ2xlIiwiaWF0IjoxNjI0ODY0NDM1LCJleHAiOjE2MjYwNzQwMzV9.8QfbTd5LzHEGpNLNocnSEvfBB_MNnk3N8njiqVnCs-8
+Content-Type: application/json
+
+{
+    "address":"a,a,a",
+    "phoneNumber":"0983782942",
+    "fullName":"Lê Nguyễn Hùng Vỹ"
+}
+
+
+####
+POST http://localhost:5000/api/cart/addBill
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3YzA4MDA5M2I5MDY3Zjg1YiIsImVtYWlsIjoidnl1bmdsZUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InZ5aHVuZ2xlIiwiaWF0IjoxNjI0ODY0NDM1LCJleHAiOjE2MjYwNzQwMzV9.8QfbTd5LzHEGpNLNocnSEvfBB_MNnk3N8njiqVnCs-8
+Content-Type: application/json
+
+
+{
+    "products":[
+        {
+            "product":"60cde5ea54ccdf20583cd13f",
+            "quantity":2
+        }
+    ],
+    "total":12000
+}
