@@ -83,8 +83,12 @@ module.exports.ValidateProfile = (address, phoneNumber, fullName) => {
   var errors = {};
   var check = address.split(",");
   console.log(check);
-  if (check.length < 3) {
-    errors.address = "Vui lòng chọn địa chỉ nhận hàng";
+  if (check[0] === "") {
+    errors.city = "Vui lòng chọn Tỉnh/Thành phố";
+  } else if (check[1] === undefined) {
+    errors.district = "Vui lòng chọn Quận/Huyện";
+  } else if (check[2] === undefined) {
+    errors.ward = "Vui lòng chọn Phường/Xã";
   }
   if (phoneNumber.trim() === "") {
     errors.phoneNumber = "Vui lòng nhập số điện thoại nhận hàng";
@@ -106,6 +110,3 @@ module.exports.ValidateProfile = (address, phoneNumber, fullName) => {
     valid: Object.keys(errors).length < 1,
   };
 };
-
-
-
