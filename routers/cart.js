@@ -18,7 +18,8 @@ router.post("/addBill", verifyToken, async (req, res) => {
   ) {
     return res.json({
       success: false,
-      message: "Vui lòng chọn địa chỉ nhận hàng",
+      message: "Lỗi",
+      error: "Vui lòng chọn địa chỉ nhận hàng",
     });
   }
   const bill = new Cart({
