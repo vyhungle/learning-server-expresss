@@ -5,6 +5,25 @@ const verifyToken = require("../middleware/auth");
 const Cart = require("../models/Cart");
 const User = require("../models/User");
 
+// @route GET api/cart/bills
+// @desc get my bills
+// @access private
+router.get("/bills", verifyToken, async (req, res) => {
+  const bills = await Cart.find({ user: req.userId }).populate("products.product");
+  if (bills) {
+    return res.json({
+      success: true,
+      message: "Thành công",
+      bills,
+    });
+  }
+  return res.json({
+    success: false,
+    message: "Thất bại",
+    error: "Không tim thấy đơn hàng nào cả",
+  });
+});
+
 // @route POST api/cart/addBill
 // @desc add bill
 // @access private

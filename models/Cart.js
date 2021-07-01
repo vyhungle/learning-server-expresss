@@ -19,11 +19,15 @@ const BillSchema = new Schema({
   },
   createdAt: {
     type: String,
-    default: Date.now(),
+    default: new Date().toISOString(),
   },
   address: String,
   phoneNumber: String,
   fullName: String,
+  status: {
+    type: Number,
+    default: 0,
+  },
   user: {
     type: Schema.Types.ObjectId,
     ref: "users",
