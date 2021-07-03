@@ -104,6 +104,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmFmNDAxO
 Content-Type: application/json
 
 {
-    "star":5,
+    "star":3,
     "body":"Chất lượng sản phẩm rất cao"
 }
