@@ -50,6 +50,7 @@ router.post("/addBill", verifyToken, async (req, res) => {
     fullName: user.fullName,
     phoneNumber: user.phoneNumber,
     user: req.userId,
+    createdAt: new Date().toISOString(),
   });
   bill.save();
   return res.json({
