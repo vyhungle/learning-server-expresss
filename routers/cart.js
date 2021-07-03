@@ -9,12 +9,14 @@ const User = require("../models/User");
 // @desc get my bills
 // @access private
 router.get("/bills", verifyToken, async (req, res) => {
-  const bills = await Cart.find({ user: req.userId }).populate("products.product");
+  const bills = await Cart.find({ user: req.userId }).populate(
+    "products.product"
+  );
   if (bills) {
     return res.json({
       success: true,
       message: "Thành công",
-      bills,
+      bills: bills.reverse(),
     });
   }
   return res.json({
