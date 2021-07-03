@@ -239,4 +239,50 @@ router.delete("/delete/:id", verifyToken, async (req, res) => {
   }
 });
 
+// @route PUT api/review/product:id
+// @desc review product by id
+// @access Private
+router.put("/review/:id", verifyToken, async (req, res) => {
+  const { star, body } = req.body;
+  const product = await Product.findById(req.params.id);
+  let index = product.review.contents.findIndex(
+    (x) => x.user.toString() === req.userId
+  );
+  if (index === -1) {
+    product.review.star =
+      (product.review.star * product.review.contents.length + star) /
+      (product.review.contents.length + 1);
+    product.review.contents.push({
+      star,
+      body,
+      user: req.userId,
+    });
+    product.save();
+    return res.json({
+      success: true,
+      message: "Đánh giá thành công",
+      review: product.review,
+    });
+  } else {
+    product.review.star =
+      (product.review.star * product.review.contents.length -
+        product.review.contents[index].star +
+        star) /
+      product.review.contents.length;
+
+    product.review.contents[index] = {
+      star,
+      body,
+      user: req.userId,
+    };
+
+    product.save();
+    return res.json({
+      success: true,
+      message: "Đánh giá thành công",
+      review: product.review,
+    });
+  }
+});
+
 module.exports = router;

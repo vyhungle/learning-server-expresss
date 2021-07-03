@@ -13,7 +13,7 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "username":"vyhungle",
+    "username":"vyhungles",
     "password":"vykt2000"
 }
 
@@ -95,3 +95,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3Y
 ####
 GET http://localhost:5000/api/cart/bills
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3YzA4MDA5M2I5MDY3Zjg1YiIsImVtYWlsIjoidnl1bmdsZUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InZ5aHVuZ2xlIiwiaWF0IjoxNjI0ODY0NDM1LCJleHAiOjE2MjYwNzQwMzV9.8QfbTd5LzHEGpNLNocnSEvfBB_MNnk3N8njiqVnCs-8
+
+
+
+####
+PUT http://localhost:5000/api/product/review/60cde5ea54ccdf20583cd13f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmFmNDAxODliYTI5NDQyMDRlZDQ0ZSIsImVtYWlsIjoidnl1bmdsZUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InZ5aHVuZ2xlcyIsImlhdCI6MTYyNTMxODM4NCwiZXhwIjoxNjI2NTI3OTg0fQ.byZzybOFAHQOqulTwktnzJFbL51vCZk0zW4Pq_WpUbI
+Content-Type: application/json
+
+{
+    "star":5,
+    "body":"Chất lượng sản phẩm rất cao"
+}

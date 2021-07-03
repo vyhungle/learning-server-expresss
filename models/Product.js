@@ -13,11 +13,16 @@ const ProductSchema = new Schema({
   discount: { type: Number, default: 0 },
   review: {
     star: { type: Number, default: 5 },
-    body: { type: String },
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: "users",
-    },
+    contents: [
+      {
+        body: { type: String },
+        star: { type: Number, default: 5 },
+        user: {
+          type: Schema.Types.ObjectId,
+          ref: "users",
+        },
+      },
+    ],
   },
   star: { type: Number },
 
