@@ -17,6 +17,7 @@ const ProductSchema = new Schema({
       {
         body: { type: String },
         star: { type: Number, default: 5 },
+        createdAt: { type: String, default: new Date().toISOString() },
         user: {
           type: Schema.Types.ObjectId,
           ref: "users",

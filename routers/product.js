@@ -23,8 +23,12 @@ cloudinary.config({
 // @access Public
 router.get("/all", async (req, res) => {
   try {
-    const products = await Product.find();
-    // .populate("user", ["username", "email", "createdAt"])
+    const products = await Product.find().populate("review.contents.user", [
+      "username",
+      "fullName",
+      "email",
+      "createdAt",
+    ]);
     // .populate("supplier")
     // .populate("producer")
     // .populate("category");
@@ -256,6 +260,7 @@ router.put("/review/:id", verifyToken, async (req, res) => {
       star,
       body,
       user: req.userId,
+      createdAt: new Date().toISOString(),
     });
     product.save();
     return res.json({
@@ -267,6 +272,7 @@ router.put("/review/:id", verifyToken, async (req, res) => {
           star,
           body,
           user: req.userId,
+          createdAt: new Date().toISOString(),
         },
       },
     });
