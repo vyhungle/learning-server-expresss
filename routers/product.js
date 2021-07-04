@@ -287,14 +287,7 @@ router.put("/review/:id", verifyToken, async (req, res) => {
     return res.json({
       success: true,
       message: "Đánh giá thành công",
-      response: {
-        star: product.review.star,
-        newContent: {
-          star,
-          body,
-          user: req.userId,
-        },
-      },
+      review: product.review,
     });
   }
 });
