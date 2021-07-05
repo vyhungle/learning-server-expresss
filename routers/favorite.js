@@ -10,7 +10,7 @@ const Favorite = require("../models/Favorite");
 // @access Private
 router.get("/my", verifyToken, async (req, res) => {
   try {
-    const favorite = await Favorite.find({ user: req.userId }).populate(
+    const favorite = await Favorite.findOne({ user: req.userId }).populate(
       "products.product"
     );
     return res.json({

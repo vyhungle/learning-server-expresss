@@ -13,7 +13,7 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "username":"vyhungles",
+    "username":"vyhungle",
     "password":"vykt2000"
 }
 
@@ -112,8 +112,8 @@ Content-Type: application/json
 
 ###
 PUT http://localhost:5000/api/favorite/like/60cde710e8b2d04abc9feb05
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmFmNDAxODliYTI5NDQyMDRlZDQ0ZSIsImVtYWlsIjoidnl1bmdsZUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InZ5aHVuZ2xlcyIsImlhdCI6MTYyNTMxODM4NCwiZXhwIjoxNjI2NTI3OTg0fQ.byZzybOFAHQOqulTwktnzJFbL51vCZk0zW4Pq_WpUbI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3YzA4MDA5M2I5MDY3Zjg1YiIsImVtYWlsIjoidnl1bmdsZUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InZ5aHVuZ2xlIiwiaWF0IjoxNjI1NDcwODkyLCJleHAiOjE2MjY2ODA0OTJ9.hk9SYAW8L_-NhdK4elcmUsmCpviRmgSfRmIQWytLeh0
 
 ###
 GET http://localhost:5000/api/favorite/my
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmFmNDAxODliYTI5NDQyMDRlZDQ0ZSIsImVtYWlsIjoidnl1bmdsZUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InZ5aHVuZ2xlcyIsImlhdCI6MTYyNTMxODM4NCwiZXhwIjoxNjI2NTI3OTg0fQ.byZzybOFAHQOqulTwktnzJFbL51vCZk0zW4Pq_WpUbI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmE0ZWU3YzA4MDA5M2I5MDY3Zjg1YiIsImVtYWlsIjoidnl1bmdsZUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InZ5aHVuZ2xlIiwiaWF0IjoxNjI1NDcwODkyLCJleHAiOjE2MjY2ODA0OTJ9.hk9SYAW8L_-NhdK4elcmUsmCpviRmgSfRmIQWytLeh0
