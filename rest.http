@@ -108,3 +108,12 @@ Content-Type: application/json
     "body":"Chất lượng sản phẩm rất cao",
     "id":"aaaaaaaaaa"
 }
+
+
+###
+PUT http://localhost:5000/api/favorite/like/60cde710e8b2d04abc9feb05
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmFmNDAxODliYTI5NDQyMDRlZDQ0ZSIsImVtYWlsIjoidnl1bmdsZUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InZ5aHVuZ2xlcyIsImlhdCI6MTYyNTMxODM4NCwiZXhwIjoxNjI2NTI3OTg0fQ.byZzybOFAHQOqulTwktnzJFbL51vCZk0zW4Pq_WpUbI
+
+###
+GET http://localhost:5000/api/favorite/my
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmFmNDAxODliYTI5NDQyMDRlZDQ0ZSIsImVtYWlsIjoidnl1bmdsZUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InZ5aHVuZ2xlcyIsImlhdCI6MTYyNTMxODM4NCwiZXhwIjoxNjI2NTI3OTg0fQ.byZzybOFAHQOqulTwktnzJFbL51vCZk0zW4Pq_WpUbI
